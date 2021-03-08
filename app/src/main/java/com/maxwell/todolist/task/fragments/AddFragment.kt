@@ -11,7 +11,7 @@ import android.widget.Toast
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.findNavController
 import com.maxwell.todolist.R
-import com.maxwell.todolist.data.task.Task
+import com.maxwell.todolist.data.task.model.Task
 import com.maxwell.todolist.data.task.TasksViewModel
 
 class AddFragment : Fragment() {

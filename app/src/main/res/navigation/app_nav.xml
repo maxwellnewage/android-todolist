@@ -7,7 +7,7 @@
 
     <fragment
         android:id="@+id/listFragment"
-        android:name="com.maxwell.todolist.fragments.ListFragment"
+        android:name="com.maxwell.todolist.task.fragments.ListFragment"
         android:label="List of tasks"
         tools:layout="@layout/fragment_list">
         <action
@@ -16,7 +16,7 @@
     </fragment>
     <fragment
         android:id="@+id/addFragment"
-        android:name="com.maxwell.todolist.fragments.AddFragment"
+        android:name="com.maxwell.todolist.task.fragments.AddFragment"
         android:label="Add Task"
         tools:layout="@layout/fragment_add">
         <action

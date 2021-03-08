@@ -1,13 +1,11 @@
-package com.maxwell.todolist.data.task
+package com.maxwell.todolist.task
 
 import android.app.Application
 import androidx.lifecycle.AndroidViewModel
 import androidx.lifecycle.LiveData
-import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.maxwell.todolist.data.TodoListDatabase
-import com.maxwell.todolist.data.task.Task
-import com.maxwell.todolist.data.task.TaskRepository
+import com.maxwell.todolist.task.data.TodoListDatabase
+import com.maxwell.todolist.task.model.Task
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 

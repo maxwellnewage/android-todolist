@@ -1,4 +1,4 @@
-package com.maxwell.todolist.data.task
+package com.maxwell.todolist.data.task.model
 
 import androidx.annotation.NonNull
 import androidx.room.ColumnInfo

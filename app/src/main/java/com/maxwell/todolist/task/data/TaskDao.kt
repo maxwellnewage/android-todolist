@@ -2,6 +2,7 @@ package com.maxwell.todolist.data.task
 
 import androidx.lifecycle.LiveData
 import androidx.room.*
+import com.maxwell.todolist.data.task.model.Task
 
 @Dao
 interface TaskDao {

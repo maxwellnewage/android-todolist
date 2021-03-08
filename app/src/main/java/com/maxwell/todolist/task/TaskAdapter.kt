@@ -1,6 +1,5 @@
-package com.maxwell.todolist.data.task
+package com.maxwell.todolist.task
 
-import android.opengl.Visibility
 import android.view.LayoutInflater
 import android.view.View
 import android.view.View.GONE
@@ -8,6 +7,7 @@ import android.view.ViewGroup
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.maxwell.todolist.R
+import com.maxwell.todolist.task.model.Task
 
 class TaskVH(v: View): RecyclerView.ViewHolder(v) {
     val tvTaskName: TextView = v.findViewById(R.id.tvTaskName)
