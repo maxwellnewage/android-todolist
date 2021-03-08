@@ -1,10 +1,9 @@
 package com.maxwell.todolist.task.fragments
 
+import android.app.AlertDialog
 import android.os.Bundle
+import android.view.*
 import androidx.fragment.app.Fragment
-import android.view.LayoutInflater
-import android.view.View
-import android.view.ViewGroup
 import android.widget.Button
 import android.widget.EditText
 import android.widget.Toast
@@ -24,6 +23,8 @@ class UpdateFragment : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
+        setHasOptionsMenu(true)
+
         val v = inflater.inflate(R.layout.fragment_update, container, false)
 
         tasksViewModel = ViewModelProvider(this).get(TasksViewModel::class.java)
@@ -57,5 +58,31 @@ class UpdateFragment : Fragment() {
         tasksViewModel.updateTask(updatedTask)
         Toast.makeText(context, "Task updated!", Toast.LENGTH_SHORT).show()
         findNavController().navigate(R.id.action_updateFragment_to_listFragment)
+    }
+
+    override fun onCreateOptionsMenu(menu: Menu, inflater: MenuInflater) {
+        inflater.inflate(R.menu.main_menu, menu)
+    }
+
+    override fun onOptionsItemSelected(item: MenuItem): Boolean {
+        if(item.itemId == R.id.menu_delete) {
+            removeTask()
+        }
+        return super.onOptionsItemSelected(item)
+    }
+
+    private fun removeTask() {
+        val builder = AlertDialog.Builder(requireContext())
+        builder.setPositiveButton("Yes") { _, _ ->
+            tasksViewModel.removeTask(args.task)
+            Toast.makeText(context, "Task ${args.task.name} removed!", Toast.LENGTH_SHORT).show()
+            findNavController().navigate(R.id.action_updateFragment_to_listFragment)
+        }
+
+        builder.setNegativeButton("No") { _, _ -> }
+
+        builder.setTitle("Delete ${args.task.name}")
+        builder.setMessage("Are you sure you want to delete ${args.task.name}?")
+        builder.show()
     }
 }

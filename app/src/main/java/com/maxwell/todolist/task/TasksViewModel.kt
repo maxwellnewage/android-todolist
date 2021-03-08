@@ -30,4 +30,16 @@ class TasksViewModel(application: Application) : AndroidViewModel(application) {
             repository.updateTask(task)
         }
     }
+
+    fun removeTask(task: Task) {
+        viewModelScope.launch(Dispatchers.IO) {
+            repository.removeTask(task)
+        }
+    }
+
+    fun removeAllTasks() {
+        viewModelScope.launch(Dispatchers.IO) {
+            repository.removeAllTasks()
+        }
+    }
 }
