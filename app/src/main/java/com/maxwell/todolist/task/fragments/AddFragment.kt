@@ -1,4 +1,4 @@
-package com.maxwell.todolist.fragments
+package com.maxwell.todolist.task.fragments
 
 import android.os.Bundle
 import androidx.fragment.app.Fragment
@@ -11,8 +11,8 @@ import android.widget.Toast
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.findNavController
 import com.maxwell.todolist.R
-import com.maxwell.todolist.data.task.model.Task
-import com.maxwell.todolist.data.task.TasksViewModel
+import com.maxwell.todolist.task.model.Task
+import com.maxwell.todolist.task.TasksViewModel
 
 class AddFragment : Fragment() {
 
@@ -30,7 +30,7 @@ class AddFragment : Fragment() {
         val etDescription = v.findViewById<EditText>(R.id.etDescription)
         val etPriority = v.findViewById<EditText>(R.id.etPriority)
 
-        v.findViewById<Button>(R.id.btAddTask).setOnClickListener {
+        v.findViewById<Button>(R.id.btUpdateTask).setOnClickListener {
             val name = etName.text.toString()
             val desc = etDescription.text?.toString()
             val priority = etPriority.text.toString()

@@ -1,4 +1,4 @@
-package com.maxwell.todolist.fragments
+package com.maxwell.todolist.task.fragments
 
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -8,13 +8,12 @@ import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.findNavController
-import androidx.recyclerview.widget.DividerItemDecoration
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.google.android.material.floatingactionbutton.FloatingActionButton
 import com.maxwell.todolist.R
-import com.maxwell.todolist.data.task.TaskAdapter
-import com.maxwell.todolist.data.task.TasksViewModel
+import com.maxwell.todolist.task.TaskAdapter
+import com.maxwell.todolist.task.TasksViewModel
 
 
 class ListFragment : Fragment() {

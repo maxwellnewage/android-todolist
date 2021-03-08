@@ -1,11 +1,10 @@
-package com.maxwell.todolist.data
+package com.maxwell.todolist.task.data
 
 import android.content.Context
 import androidx.room.Database
 import androidx.room.Room
 import androidx.room.RoomDatabase
-import com.maxwell.todolist.data.task.model.Task
-import com.maxwell.todolist.data.task.TaskDao
+import com.maxwell.todolist.task.model.Task
 
 
 @Database(entities = [Task::class], version = 1)
