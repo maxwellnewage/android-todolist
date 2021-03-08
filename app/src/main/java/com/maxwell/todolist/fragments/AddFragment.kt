@@ -47,7 +47,6 @@ class AddFragment : Fragment() {
     }
 
     private fun insertTasktoDB(name: String, desc: String?, priority: Int) {
-        // TODO not run in UI Thread
         val task = Task(0, name, desc, priority)
         tasksViewModel.addTask(task)
         Toast.makeText(context, "Task added!", Toast.LENGTH_SHORT).show()

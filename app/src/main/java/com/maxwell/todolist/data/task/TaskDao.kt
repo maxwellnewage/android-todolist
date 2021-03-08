@@ -5,11 +5,11 @@ import androidx.room.*
 
 @Dao
 interface TaskDao {
-    @Query("SELECT * FROM task ORDER BY priority")
+    @Query("SELECT * FROM tasks ORDER BY priority")
     fun getTasks(): LiveData<List<Task>>
 
     @Insert
-    fun addTask(task: Task)
+    suspend fun addTask(task: Task)
 
     @Delete
     fun removeTask(task: Task)

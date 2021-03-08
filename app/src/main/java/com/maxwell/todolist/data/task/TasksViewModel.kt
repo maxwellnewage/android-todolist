@@ -4,9 +4,12 @@ import android.app.Application
 import androidx.lifecycle.AndroidViewModel
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.ViewModel
+import androidx.lifecycle.viewModelScope
 import com.maxwell.todolist.data.TodoListDatabase
 import com.maxwell.todolist.data.task.Task
 import com.maxwell.todolist.data.task.TaskRepository
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.launch
 
 class TasksViewModel(application: Application) : AndroidViewModel(application) {
     private val tasks: LiveData<List<Task>>
@@ -19,6 +22,8 @@ class TasksViewModel(application: Application) : AndroidViewModel(application) {
     }
 
     fun addTask(task: Task) {
-        repository.addTask(task)
+        viewModelScope.launch(Dispatchers.IO) {
+            repository.addTask(task)
+        }
     }
 }
