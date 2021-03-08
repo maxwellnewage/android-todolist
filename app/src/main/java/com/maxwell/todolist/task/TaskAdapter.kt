@@ -4,15 +4,20 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.View.GONE
 import android.view.ViewGroup
+import android.widget.LinearLayout
 import android.widget.TextView
+import androidx.fragment.app.ListFragment
+import androidx.navigation.findNavController
 import androidx.recyclerview.widget.RecyclerView
 import com.maxwell.todolist.R
+import com.maxwell.todolist.task.fragments.ListFragmentDirections
 import com.maxwell.todolist.task.model.Task
 
 class TaskVH(v: View): RecyclerView.ViewHolder(v) {
     val tvTaskName: TextView = v.findViewById(R.id.tvTaskName)
     val tvTaskDesc: TextView = v.findViewById(R.id.tvTaskDesc)
     val tvPriority: TextView = v.findViewById(R.id.tvPriority)
+    val llTaskContainer: LinearLayout = v.findViewById(R.id.llTaskContainer)
 }
 
 class TaskAdapter: RecyclerView.Adapter<TaskVH>() {
@@ -27,7 +32,6 @@ class TaskAdapter: RecyclerView.Adapter<TaskVH>() {
         val task = taskList[position]
         holder.tvTaskName.text = task.name
 
-
         if(task.description.isNullOrEmpty()) {
             holder.tvTaskDesc.visibility = GONE
         } else {
@@ -38,6 +42,11 @@ class TaskAdapter: RecyclerView.Adapter<TaskVH>() {
             holder.tvPriority.text = "Priority is high"
         } else {
             holder.tvPriority.text = "Priority is low"
+        }
+
+        holder.llTaskContainer.setOnClickListener {
+            val action = ListFragmentDirections.actionListFragmentToUpdateFragment(task)
+            holder.llTaskContainer.findNavController().navigate(action)
         }
     }
 

@@ -13,14 +13,28 @@
         <action
             android:id="@+id/action_listFragment_to_addFragment"
             app:destination="@id/addFragment" />
+        <action
+            android:id="@+id/action_listFragment_to_updateFragment"
+            app:destination="@id/updateFragment" />
     </fragment>
     <fragment
         android:id="@+id/addFragment"
         android:name="com.maxwell.todolist.task.fragments.AddFragment"
         android:label="Add Task"
-        tools:layout="@layout/fragment_add">
+        tools:layout="@layout/fragment_update">
         <action
             android:id="@+id/action_addFragment_to_listFragment"
             app:destination="@id/listFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/updateFragment"
+        android:name="com.maxwell.todolist.task.fragments.UpdateFragment"
+        android:label="Update Task">
+        <action
+            android:id="@+id/action_updateFragment_to_listFragment"
+            app:destination="@id/listFragment" />
+        <argument
+            android:name="task"
+            app:argType="com.maxwell.todolist.task.model.Task" />
     </fragment>
 </navigation>
