@@ -4,6 +4,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.View.GONE
 import android.view.ViewGroup
+import android.widget.ImageView
 import android.widget.LinearLayout
 import android.widget.TextView
 import androidx.fragment.app.ListFragment
@@ -17,7 +18,7 @@ class TaskVH(v: View): RecyclerView.ViewHolder(v) {
     val tvTaskName: TextView = v.findViewById(R.id.tvTaskName)
     val tvTaskDesc: TextView = v.findViewById(R.id.tvTaskDesc)
     val tvPriority: TextView = v.findViewById(R.id.tvPriority)
-    val llTaskContainer: LinearLayout = v.findViewById(R.id.llTaskContainer)
+    val ivEditTask: ImageView = v.findViewById(R.id.ivEditTask)
 }
 
 class TaskAdapter: RecyclerView.Adapter<TaskVH>() {
@@ -44,9 +45,9 @@ class TaskAdapter: RecyclerView.Adapter<TaskVH>() {
             holder.tvPriority.text = "Priority is low"
         }
 
-        holder.llTaskContainer.setOnClickListener {
+        holder.ivEditTask.setOnClickListener {
             val action = ListFragmentDirections.actionListFragmentToUpdateFragment(task)
-            holder.llTaskContainer.findNavController().navigate(action)
+            holder.ivEditTask.findNavController().navigate(action)
         }
     }
 
