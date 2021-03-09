@@ -28,4 +28,6 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         android:focusable="true" />
+
+    <include android:id="@+id/iEmptyList" layout="@layout/rv_item_task_empty" android:visibility="gone" />
 </androidx.constraintlayout.widget.ConstraintLayout>

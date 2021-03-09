@@ -35,6 +35,10 @@ class ListFragment : Fragment() {
         tasksViewModel = ViewModelProvider(this).get(TasksViewModel::class.java)
         tasksViewModel.tasks.observe(viewLifecycleOwner, Observer {
             adapter.setData(it)
+
+            if(it.isEmpty()) {
+                v.findViewById<View>(R.id.iEmptyList).visibility = View.VISIBLE
+            }
         })
 
         v.findViewById<FloatingActionButton>(R.id.fabAddTask).setOnClickListener {
